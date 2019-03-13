@@ -25,21 +25,21 @@ def login():
 def login_result():
 
 	if request.method == "POST":
-		result = request.form
-		print("result")
-		print(result)
+		response = request.form
+		print("response")
+		print(response)
 		
 		result={"status":"correto"}
-		if usuario_existe(result["email"]):
+		if usuario_existe(response["email"]):
 		
-			if verifica_senha(result["email"],result["senha"]):
-				return render_template("loginresult.html",result)
+			if verifica_senha(response["email"],response["senha"]):
+				return render_template("loginresult.html",result=result)
 			else:
 				result["status"]="senha_incorreta"
-				return render_template("loginresult.html",result)
+				return render_template("loginresult.html",result=result)
 		else:
 			result["status"]="usuario_incorreto"
-			return render_template("loginresult.html",result)
+			return render_template("loginresult.html",result=result)
 			
 		
 	
