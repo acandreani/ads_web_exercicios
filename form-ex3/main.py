@@ -8,13 +8,12 @@ def usuario_existe(usuario):
 
 def verifica_senha(usuario,senha):
 	return usuario == bd["usuario"] and senha==bd["senha"]
-	
-	
 
+    
 @app.route("/")
 def student():
 	return render_template("aluno.html")
-	
+
 
 @app.route("/login")
 def login():
@@ -28,10 +27,10 @@ def login_result():
 		response = request.form
 		print("response")
 		print(response)
-		
+
 		result={"status":"correto"}
 		if usuario_existe(response["email"]):
-		
+
 			if verifica_senha(response["email"],response["senha"]):
 				return render_template("loginresult.html",result=result)
 			else:
@@ -40,9 +39,9 @@ def login_result():
 		else:
 			result["status"]="usuario_incorreto"
 			return render_template("loginresult.html",result=result)
-			
-		
-	
+
+
+
 @app.route("/result",methods=['POST'])
 def result():
 	if request.method == "POST":
@@ -50,9 +49,9 @@ def result():
 		print("result")
 		print(result)
 		return render_template("result.html")
-	
-		
-	
+
+
+
 if __name__== "__main__":
 	app.run(host="0.0.0.0",debug= True)
-	
+
