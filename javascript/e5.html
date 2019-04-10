@@ -2,12 +2,14 @@
 <head>
 </head>
 <body>
+<input type="button" value="desenha" onclick="window.app.draw()" ></input>
 <canvas id="quadro" width="500" height="500">
 <script>
 
 class Square{
-	constructor(size){
-	
+	constructor(canvas,size){
+		this.canvas=canvas;
+		this.context=this.canvas.getContext();	
 		this.size=size;
 	}
 	setSize(size){
@@ -15,6 +17,13 @@ class Square{
 		this.size=size;
 	}
 	
+	draw(){
+		var context =this.context;
+		context.beginPath();
+		context.moveTo(250,250);
+		context.lineTo(250,0);
+		context.stroke();
+	}
 
 }
 
@@ -22,13 +31,21 @@ class Square{
 
 class App{
 	constructor(){
-		this.square=new Square(5);
+		this.canvas=document.getElementById("quadro");
+		
+		this.square=new Square(this.canvas,5);
 	}
+	
+	draw(){
+		this.square.draw();
+	}
+	
 	
 	init(){
 		this.square.setSize(5);
 	}
 }
+
 
 app=new App()
 
