@@ -1,17 +1,17 @@
 
-#para adicionar arquivos 
+# Para adicionar arquivos 
 
 git add .
 
-#para salvar localmente 
+# Para salvar localmente 
 
 git commit -am "sua mensagem aqui"
 
-#para salvar no servidor
+# Para salvar no servidor
 
 git push origin master
 
-#para atualizar o repositório local com atualizações remotas
+# Para atualizar o repositório local com atualizações remotas
 
 git pull
 
