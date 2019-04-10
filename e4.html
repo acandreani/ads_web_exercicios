@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+<body>
+
+<input id="a" type="text"   > </input>
+
+<input id="b" type="text"  > </input>
+
+<input type="button" onclick="window.app.mostraSoma()" value="Aperte me"> </input>
+
+<script>
+
+
+class App{
+
+	constructor(a,b){
+		this.a=a;
+		this.b=b;	
+	}
+	
+	setA(a){
+		this.a=parseInt(a);
+	}
+	setB(b){
+		this.b=parseInt(b);
+	}
+	
+	getA(){
+		return this.a;
+	}
+	
+	pegaValores(){
+	
+		this.a=parseInt(document.getElementById("a").value);
+		this.b=parseInt(document.getElementById("b").value);
+	}
+	
+	soma(){
+	
+		return this.getA()+this.b;
+	}
+	
+	mostraSoma(){
+	
+		this.pegaValores();
+
+		window.alert(this.soma().toString()); 
+	}
+
+
+}
+
+
+app=new App(1,2);
+
+</script>
+
+</body>
+</html>
