@@ -1,0 +1,49 @@
+<html>
+<head>
+</head>
+<body>
+
+<input id="a" type="text" onchange="window.app.setA(this.value)" > </input>
+
+<input id="b" type="text" onchange="window.app.setB(this.value)" > </input>
+
+<input type="button" onclick="window.app.mostraSoma()" value="Aperte me"> </input>
+
+<script>
+
+
+class App{
+
+	constructor(a,b){
+		this.a=a;
+		this.b=b;	
+	}
+	
+	setA(a){
+		this.a=parseInt(a);
+	}
+	setB(b){
+		this.b=parseInt(b);
+	}
+	
+	
+	soma(){
+	
+		return this.a+this.b;
+	}
+	
+	mostraSoma(){
+	
+		window.alert(this.soma().toString()); 
+	}
+
+
+}
+
+
+app=new App(1,2);
+
+</script>
+
+</body>
+</html>
