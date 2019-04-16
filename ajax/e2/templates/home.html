@@ -1,5 +1,7 @@
 <html>
 <head>
+<script type="text/javascript" src="/static/jquery-3.4.0.min.js"></script>
+
 </head>
 <body>
 <div>
@@ -76,17 +78,22 @@ class App{
 		
 	}
 	
+	sendScore(value){
+		
+	}
 	update(){
 		this.moveDown();
 		
 		if (this.square.origem.y>600){
 			window.alert("Você perdeu!");
 			this.init();
+			this.sendScore(-100);
 			
 		}else{
 			if( this.square.origem.y<50){
 			
 				window.alert("Você ganhou, parabéns!!");
+				this.sendScore(100);
 				this.init();
 			}
 		
@@ -134,8 +141,7 @@ class App{
 		this.square.origem.y=250;
 		console.log("y");
 		console.log(this.square.origem.y);
-		
-
+	
 	}
 }
 
