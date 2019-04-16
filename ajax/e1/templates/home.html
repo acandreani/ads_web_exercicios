@@ -1,0 +1,129 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+<input type="button" value="direita" onclick="window.app.moveRight()" ></input>
+<input type="button" value="esquerda" onclick="window.app.moveLeft()" ></input>
+<input type="button" value="cima" onclick="window.app.moveUp()" ></input>
+<input type="button" value="baixo" onclick="window.app.moveDown()" ></input>
+
+<input type="button" value="desenha" onclick="window.app.draw()" ></input>
+</div>
+
+<canvas id="quadro" width="500" height="500">
+
+<script>
+
+class Square{
+	constructor(canvas,size){
+		this.canvas=canvas;
+		this.context=this.canvas.getContext("2d");	
+		this.size=size;
+		this.origem={x:250,y:250};
+		this.step=5;
+	}
+	setSize(size){
+	
+		this.size=size;
+	}
+	
+	moveRight(){
+		this.origem.x+=this.step;
+	}
+	
+	moveLeft(){
+		this.origem.x-=this.step;
+	}
+	moveDown(){
+		this.origem.y+=this.step
+	}
+	
+	moveUp(){
+		this.origem.y-=this.step
+	}
+	
+
+	
+	draw(){
+		var context =this.context;
+		context.beginPath();
+		context.moveTo(this.origem.x,this.origem.y);
+		context.lineTo(this.origem.x,this.origem.y-250);
+		context.lineTo(this.origem.x+250,this.origem.y-250);
+		context.lineTo(this.origem.x+250,this.origem.y);
+		context.lineTo(this.origem.x,this.origem.y);
+		context.stroke();
+	}
+
+}
+
+
+
+class App{
+	constructor(){
+	
+		
+		this.canvas=document.getElementById("quadro");
+		this.context=this.canvas.getContext("2d");
+		this.square=new Square(this.canvas,5);
+		
+		setInterval(this.moveDown.bind(this),600);
+	}
+
+	clear(){
+		this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
+		
+	}
+	
+	moveRight(){
+		this.clear();
+		this.square.moveRight();
+		this.draw();
+
+	}
+	
+	moveUp(){
+		this.clear();
+		this.square.moveUp();
+		this.draw();
+	}
+	
+	moveDown(){
+		this.clear();
+		this.square.moveDown();
+		this.draw();
+	}
+
+	
+	moveLeft(){
+		this.clear();
+		this.square.moveLeft();
+		this.draw();
+	}
+	
+	
+	
+	
+	draw(){
+		this.square.draw();
+	}
+	
+	
+	init(){
+		this.square.setSize(5);
+		
+
+	}
+}
+
+
+app=new App()
+
+
+
+
+</script>
+
+</body>
+</html>
