@@ -1,5 +1,15 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, json
 app = Flask(__name__)
+
+@app.route("/ws/score",methods=["POST"])
+def ws_score():
+	if request.method == "POST":
+		print("teste- dado recebido")
+		print(request.get_json())
+		
+		return json.dumps({"status":"ok"})
+
+
 
 @app.route("/",methods=["GET"])
 def home():
