@@ -80,15 +80,25 @@ class App{
 	
 	sendScore(value){
 		
+		$.ajax({
+		url:"/ws/score",
+		type:"post",
+		dataType:"json",
+		contentType:"application/json",
+		sucess:function(data){
+			console.log(data)
+		},
+		data: JSON.stringify({"score":value});
+		});
 	}
+	
 	update(){
 		this.moveDown();
 		
 		if (this.square.origem.y>600){
 			window.alert("Você perdeu!");
-			this.init();
 			this.sendScore(-100);
-			
+			this.init();
 		}else{
 			if( this.square.origem.y<50){
 			
