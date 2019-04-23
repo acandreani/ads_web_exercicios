@@ -16,18 +16,14 @@ def ws_score():
 		cursor = conn.cursor()
 		# criando a tabela (schema)
 		cursor.execute("""
-		CREATE TABLE clientes (
-				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+		CREATE TABLE cadastro (
+				email TEXT NOT NULL PRIMARY KEY ,
 				nome TEXT NOT NULL,
-				idade INTEGER,
-				cpf     VARCHAR(11) NOT NULL,
-				email TEXT NOT NULL,
-				fone TEXT,
-				cidade TEXT,
-				uf VARCHAR(2) NOT NULL,
-				criado_em DATE NOT NULL
+				senha TEXT NOT NULL
 		);
 		""")
+		
+		conn.close()
 		
 		
 		
