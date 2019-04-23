@@ -57,14 +57,14 @@ class App{
 		
 		if (this.senha != this.senha2){
 			window.alert("senhas diferentes, digite novamente");
-		}
+		}else{
 		
-		cadastro={"nome":this.nome,
-			  "email":this.email,
-			  "senha":this.senha}
+			cadastro={"nome":this.nome,
+				  "email":this.email,
+				  "senha":this.senha};
 
-		this.enviaCadastro(cadastro)
-		
+			this.enviaCadastro(cadastro)
+		}
 	
 	
 	}
