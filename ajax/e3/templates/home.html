@@ -32,15 +32,39 @@ class App{
 	constructor(){
 	
 		this.nomeEl=document.getElementById("nome");
+		this.emailEl=document.getElementById("email");
+		this.senhaEl=document.getElementById("senha");
+		this.senha2El=document.getElementById("senha2");
+		
 		this.nome=null;
+		this.email=null;
+		this.senha=null;
+		this.senha2=null;
 		
 	}
 
 	formSubmitEvent(){
-		this.nome=this.nomeEl.value;
+	
+
 		
-		console.log("nome");
-		console.log(this.nome);
+		
+		this.nome=this.nomeEl.value;
+		this.email=this.emailEl.value;
+		this.senha=this.senhaEl.value;
+		this.senha2=this.senhaEl.value;
+		
+
+		
+		if (this.senha != this.senha2){
+			window.alert("senhas diferentes, digite novamente");
+		}
+		
+		cadastro={"nome":this.nome,
+			  "email":this.email,
+			  "senha":this.senha}
+
+		this.enviaCadastro(cadastro)
+		
 	
 	
 	}
